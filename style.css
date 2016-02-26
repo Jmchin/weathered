@@ -1,0 +1,32 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #262626;
+}
+
+.btn {
+  border-style: none;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+}
+
+.get-weather-btn {
+  width: 45vw;
+  height: 25vh;
+  margin-top: 33vh;
+  background-color: #f75e5e;
+  color: #ffffff;
+  font-size: 66px;
+}
+
+.get-weather-btn:hover {
+  background-color: #f53d3d;
+  color: #e4e4e4;
+}
