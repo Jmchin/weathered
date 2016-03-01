@@ -1,35 +1,60 @@
-html, body {
-  height: 100%;
-  width: auto;
+html {
+  height: 100vh;
+  margin: 0;
+  /*background-color: #ececec;*/
+  background: #eaeaea
+    url("https://a.thumbs.redditmedia.com/svhBVN6t1pGEvebFn7sCDBxAXdlyOaCnSAQjgpkBnX8.jpg")
+    left top repeat;
+}
+body {
   margin: 0;
 }
-.container {
-  height: inherit;
+header {
+  /*height: 8vh;*/
+  width: auto;
+  padding-top: 0;
+  background-color: #2bc0ff;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e4e4e4;
+}
+header h1 {
+  font-family: 'Lato', sans-serif;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .btn {
   border-style: none;
   font-family: 'Lato', sans-serif;
   cursor: pointer;
-  box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.2s ease-in-out;
 }
-
 .btn:hover {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-
 .get-weather-btn {
   width: 40vw;
   height: 25vh;
-  margin-top: 33vh;
-  background-color: #f75e5e;
+  margin-top: 20vh;
+  background-color: #50cf49;
   color: #ffffff;
-  font-size: 4.5em;
+  font-size: 3.2vw;
 }
+@media(max-width: 800px) {
+  .get-weather-btn {
+    margin-top: 15vh;
+    width: 75vw;
+    font-size: 8vw;
+  }
+}
+
+/*animation definitions*/
 
 @keyframes fadein {
   from {
@@ -39,7 +64,6 @@ html, body {
     opacity: 1;
   }
 }
-
 .fadein {
-  animation: fadein 4s;
+  animation: fadein 2.5s;
 }
