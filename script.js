@@ -1,66 +1,69 @@
-function getGeoLocation() {
-  var output = document.getElementById('start');
+(function app() {
+  document.getElementById('start').addEventListener('click', getGeoLocation);
 
-  if (!navigator.geolocation) {
-    output.innerHTML = 'Your browser does not support geolocation';
-  }
+  function getGeoLocation() {
+    var output = document.getElementById('start');
 
-  function success(position) {
-    // cache coordinates
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
+    if (!navigator.geolocation) {
+      output.innerHTML = 'Your browser does not support geolocation';
+    }
 
-    // IIFE that references coordinates for API call
-    (function getLocalWeather() {
-      var httpRequest;
+    function success(position) {
+      output.style['background-color'] = '#44c376';
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
 
-      // openweathermap API settings
-      var URL = 'http://api.openweathermap.org/data/2.5/weather?lat=%lat%&lon=%long%&APPID={APIKEY}';
-      var API_KEY = '21f42111c89049ac9a71560c5fe1d747';
+      // IIFE that references coordinates for API call
+      (function getLocalWeather() {
+        var httpRequest;
 
-      URL = URL.replace('{APIKEY}', API_KEY);
-      URL = URL.replace('%lat%', latitude);
-      URL = URL.replace('%long%', longitude);
+        // openweathermap API settings
+        var URL = 'http://api.openweathermap.org/data/2.5/weather?lat=%lat%&lon=%long%&APPID={APIKEY}';
+        var API_KEY = '21f42111c89049ac9a71560c5fe1d747';
 
-      // API request
-      (function makeRequest() {
-        httpRequest = new XMLHttpRequest();
+        URL = URL.replace('{APIKEY}', API_KEY);
+        URL = URL.replace('%lat%', latitude);
+        URL = URL.replace('%long%', longitude);
 
-        if (!httpRequest) {
-          alert('Cannot create XMLHTTP instance');
-          return false;
-        }
+        // API request
+        (function makeRequest() {
+          httpRequest = new XMLHttpRequest();
 
-        httpRequest.onload = alertContents;
-        httpRequest.open('GET', URL);
-        httpRequest.send();
-      })();
+          if (!httpRequest) {
+            alert('Cannot create XMLHTTP instance');
+            return false;
+          }
 
-      function alertContents() {
-        if (httpRequest.readyState === XMLHttpRequest.DONE) {
-          if (httpRequest.status === 200) {
-            alert(httpRequest.responseText);
-          } else {
-            alert('There was a problem with the request.');
-            console.log('Error: ', httpRequest.status);
+          httpRequest.onload = alertContents;
+          httpRequest.open('GET', URL, true);
+          httpRequest.send();
+        })();
+
+        // TODO: modify function to format JSON results
+        function alertContents() {
+          if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+              output.innerHTML = JSON.parse(httpRequest.responseText).name;
+              alert(httpRequest.responseText);
+            } else {
+              alert('There was a problem with the request.');
+              console.log('Error: ', httpRequest.status);
+            }
           }
         }
-      }
 
-    })();
+      })();
 
+    }
+
+    function error() {
+      output.style['background-color'] = '#f75e5e';
+      output.innerHTML = 'Unable to determine your location';
+
+    }
+
+    output.innerHTML = 'Tracking...';
+    navigator.geolocation.getCurrentPosition(success, error);
   }
 
-  function error() {
-    output.style['background-color'] = '#f75e5e';
-    output.innerHTML = 'Unable to determine your location';
-
-  }
-
-  output.innerHTML = 'Tracking...';
-  navigator.geolocation.getCurrentPosition(success, error);
-}
-
-
-// event handlers
-document.getElementById('start').addEventListener('click', getGeoLocation);
+})();
