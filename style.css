@@ -47,13 +47,13 @@ header h1 {
   margin-top: 20vh;
   background-color: #43c376;
   color: #ffffff;
-  font-size: 3.2vw;
+  font-size: 4em;
 }
 @media(max-width: 800px) {
   .get-weather-btn {
     margin-top: 15vh;
     width: 75vw;
-    font-size: 8vw;
+    font-size: 3.5em;
   }
 }
 .card {
@@ -66,6 +66,7 @@ header h1 {
   height: 60vh;
   width: 25vw;
   margin-top: 10vh;
+  justify-content: space-around;
 }
 @media(max-width: 1500px) {
   #weather-card {
@@ -77,6 +78,10 @@ header h1 {
     height: 55vh;
     width: 65vw;
   }
+}
+.card-title {
+  font-size: 2em;
+  margin-left: 0;
 }
 
 /*animation definitions*/

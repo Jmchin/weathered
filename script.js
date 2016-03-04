@@ -36,14 +36,14 @@
             return false;
           }
 
-          httpRequest.onload = alertContents;
+          httpRequest.onload = getResults;
           httpRequest.open('GET', URL, true);
           httpRequest.send();
         })();
 
         // TODO: modify function to format JSON results
-        function alertContents() {
-          results = httpRequest.responseText;
+        function getResults() {
+          results = JSON.parse(httpRequest.responseText);
 
           if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
@@ -62,7 +62,13 @@
           weatherCard.classList.remove('hidden');
           weatherCard.classList.add('fadein');
 
-          
+          // card subsection declarations
+          var cityName = document.getElementById('city-name');
+          var cityTemp = document.getElementById('city-temp');
+
+          // card subsection definitions
+          cityName.innerHTML = results.name;
+          cityTemp.innerHTML = results.main.temp;
         }
 
       })();
