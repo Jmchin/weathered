@@ -2,14 +2,16 @@
   document.getElementById('start').addEventListener('click', getGeoLocation);
 
   function getGeoLocation() {
-    var output = document.getElementById('start');
+    var startButton = document.getElementById('start');
+    var weatherCard = document.getElementById('weather-card');
+    var results;
 
     if (!navigator.geolocation) {
-      output.innerHTML = 'Your browser does not support geolocation';
+      startButton.innerHTML = 'Your browser does not support geolocation';
     }
 
     function success(position) {
-      output.style['background-color'] = '#44c376';
+      startButton.style['background-color'] = '#44c376';
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
 
@@ -41,15 +43,26 @@
 
         // TODO: modify function to format JSON results
         function alertContents() {
+          results = httpRequest.responseText;
+
           if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
-              output.innerHTML = JSON.parse(httpRequest.responseText).name;
-              alert(httpRequest.responseText);
+              populateWeatherCard();
             } else {
               alert('There was a problem with the request.');
               console.log('Error: ', httpRequest.status);
             }
           }
+          return results;
+        }
+
+        function populateWeatherCard() {
+          // css class management
+          startButton.classList.add('hidden');
+          weatherCard.classList.remove('hidden');
+          weatherCard.classList.add('fadein');
+
+          
         }
 
       })();
@@ -57,12 +70,12 @@
     }
 
     function error() {
-      output.style['background-color'] = '#f75e5e';
-      output.innerHTML = 'Unable to determine your location';
+      startButton.style['background-color'] = '#f75e5e';
+      startButton.innerHTML = 'Unable to determine your location';
 
     }
 
-    output.innerHTML = 'Tracking...';
+    startButton.innerHTML = 'Tracking...';
     navigator.geolocation.getCurrentPosition(success, error);
   }
 
