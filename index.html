@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   </head>
 
   <header>
@@ -18,8 +19,10 @@
     <div class="container">
       <button class="btn get-weather-btn fadein" id="start">What's the weather?</button>
       <section class="card hidden" id="weather-card">
+        <div class="weather-icon" id="weather-icon"></div>
         <div class="card-title" id="city-name"></div>
         <div id="city-temp"></div>
+        <div class="slider" id="temp-slider"></div>
       </section>
     </div>
   </body>

@@ -65,10 +65,23 @@
           // card subsection declarations
           var cityName = document.getElementById('city-name');
           var cityTemp = document.getElementById('city-temp');
+          var tempSlider = document.getElementById('temp-slider');
 
           // card subsection definitions
           cityName.innerHTML = results.name;
           cityTemp.innerHTML = results.main.temp;
+          getWeatherIcon();
+        }
+
+        function getWeatherIcon(desc) {
+          var weatherIcon = document.getElementById('weather-icon');
+          switch (desc) {
+            case 'Clear':
+              weatherIcon.classList.add('sun');
+              break;
+            default:
+              weatherIcon.classList.add('sun');
+          }
         }
 
       })();

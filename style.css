@@ -2,6 +2,7 @@ html {
   height: 100vh;
   margin: 0;
   background: #eaeaea url("https://a.thumbs.redditmedia.com/svhBVN6t1pGEvebFn7sCDBxAXdlyOaCnSAQjgpkBnX8.jpg") left top repeat;
+  font-family: 'Lato', sans-serif;
 }
 body {
   margin: 0;
@@ -15,7 +16,6 @@ header {
   flex-direction: column;
 }
 header h1 {
-  font-family: 'Lato', sans-serif;
   padding-left: 3vw;
   letter-spacing: 2px;
 }
@@ -27,7 +27,6 @@ header h1 {
 }
 .btn {
   border-style: none;
-  font-family: 'Lato', sans-serif;
   cursor: pointer;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.2s ease-in-out;
@@ -60,6 +59,9 @@ header h1 {
   background-color: #ffffff;
   border-radius: 2%;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.card > div {
+  font-family: 'Droid Sans', sans-serif;
 }
 #weather-card {
   display: flex;
@@ -102,4 +104,37 @@ header h1 {
 
 .hidden {
   display: none !important;
+}
+.weather-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  float: right;
+  margin: 40px 40px 0 0;
+  -webkit-animation: weather-icon-move 5s ease-in-out infinite;
+  animation: weather-icon-move 5s ease-in-out infinite;
+}
+.sun {
+  background: #FFCD41;
+  border-radius: 50%;
+  box-shadow: rgba(255, 255, 0, 0.1) 0 0 0 4px;
+  -webkit-animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
+  animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
+}
+@-webkit-keyframes light {
+  from {
+    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
+  }
+  to {
+    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
+  }
+}
+@keyframes light {
+  from {
+    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
+  }
+  to {
+    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
+  }
 }
