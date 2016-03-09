@@ -11,7 +11,7 @@
     }
 
     function success(position) {
-      startButton.style['background-color'] = '#44c376';
+      startButton.style['background-color'] = '#09BC8A';
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
 

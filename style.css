@@ -31,7 +31,6 @@ header h1 {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.2s ease-in-out;
   border-radius: 1.8%;
-  text-shadow: 1px 1px 1px black;
 }
 .btn:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -47,6 +46,7 @@ header h1 {
   background-color: #43c376;
   color: #ffffff;
   font-size: 4em;
+  text-shadow: 1px 1px 1px black;
 }
 @media(max-width: 800px) {
   .get-weather-btn {
@@ -59,16 +59,17 @@ header h1 {
   background-color: #ffffff;
   border-radius: 2%;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  height: 304px;
+  width: 344px;
 }
 .card > div {
   font-family: 'Droid Sans', sans-serif;
 }
 #weather-card {
   display: flex;
-  height: 60vh;
-  width: 25vw;
   margin-top: 10vh;
-  justify-content: space-around;
+  flex-flow: column;
+  align-items: center;
 }
 @media(max-width: 1500px) {
   #weather-card {
@@ -81,37 +82,25 @@ header h1 {
     width: 65vw;
   }
 }
+.card-header {
+  flex: 1 0 auto;
+  width: 100%;
+  display: flex;
+  align-content: space-around;
+}
 .card-title {
+  flex: 0 0 auto;
   font-size: 2em;
-  margin-left: 0;
 }
-
-/*animation definitions*/
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.fadein {
-  animation: fadein 2.5s;
-}
-
-/*utility classes*/
-
-.hidden {
-  display: none !important;
+.card-weather {
+  flex: 1 0 auto;
+  margin: 7%;
 }
 .weather-icon {
-  position: relative;
+  flex: 1 0 0;
   width: 50px;
   height: 50px;
   top: 0;
-  float: right;
-  margin: 40px 40px 0 0;
   -webkit-animation: weather-icon-move 5s ease-in-out infinite;
   animation: weather-icon-move 5s ease-in-out infinite;
 }
@@ -122,6 +111,17 @@ header h1 {
   -webkit-animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
   animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
 }
+
+/*animation definitions*/
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @-webkit-keyframes light {
   from {
     box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
@@ -137,4 +137,12 @@ header h1 {
   to {
     box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
   }
+}
+
+/*utility classes*/
+.hidden {
+  display: none !important;
+}
+.fadein {
+  animation: fadein 2.5s;
 }
