@@ -1,148 +1,131 @@
-html {
-  height: 100vh;
-  margin: 0;
-  background: #eaeaea url("https://a.thumbs.redditmedia.com/svhBVN6t1pGEvebFn7sCDBxAXdlyOaCnSAQjgpkBnX8.jpg") left top repeat;
-  font-family: 'Lato', sans-serif;
-}
-body {
-  margin: 0;
-}
-header {
-  width: auto;
-  padding-top: 0;
-  background-color: #43c376;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-}
-header h1 {
-  padding-left: 3vw;
-  letter-spacing: 2px;
-}
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.btn {
-  border-style: none;
-  cursor: pointer;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.2s ease-in-out;
-  border-radius: 1.8%;
-}
-.btn:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.btn:focus {
-  outline: none;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-.get-weather-btn {
-  width: 40vw;
-  height: 25vh;
-  margin-top: 20vh;
-  background-color: #43c376;
-  color: #ffffff;
-  font-size: 4em;
-  text-shadow: 1px 1px 1px black;
-}
-@media(max-width: 800px) {
+    html {
+    height: 100vh;
+    margin: 0;
+    background: #eaeaea url("https://a.thumbs.redditmedia.com/svhBVN6t1pGEvebFn7sCDBxAXdlyOaCnSAQjgpkBnX8.jpg") left top repeat;
+    font-family: 'Lato', sans-serif;
+  }
+  body {
+    margin: 0;
+  }
+  header {
+    width: auto;
+    padding-top: 0;
+    background-color: #43c376;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  header h1 {
+    padding-left: 3vw;
+    letter-spacing: 2px;
+  }
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    border-style: none;
+    cursor: pointer;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.2s ease-in-out;
+    border-radius: 1.8%;
+  }
+  .btn:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  .btn:focus {
+    outline: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
   .get-weather-btn {
-    margin-top: 15vh;
-    width: 75vw;
-    font-size: 3.5em;
+    width: 40vw;
+    height: 25vh;
+    margin-top: 20vh;
+    background-color: #43c376;
+    color: #ffffff;
+    font-size: 4em;
+    text-shadow: 1px 1px 1px black;
   }
-}
-.card {
-  background-color: #ffffff;
-  border-radius: 2%;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  height: 304px;
-  width: 344px;
-}
-.card > div {
-  font-family: 'Droid Sans', sans-serif;
-}
-#weather-card {
-  display: flex;
-  margin-top: 10vh;
-  flex-flow: column;
-  align-items: center;
-}
-@media(max-width: 1500px) {
-  #weather-card {
-    width: 35vw;
+  @media(max-width: 800px) {
+    .get-weather-btn {
+      margin-top: 15vh;
+      width: 75vw;
+      font-size: 3.5em;
+    }
   }
-}
-@media(max-width: 860px) {
-  #weather-card {
-    height: 55vh;
-    width: 65vw;
-  }
-}
-.card-header {
-  flex: 1 0 auto;
-  width: 100%;
-  display: flex;
-  align-content: space-around;
-}
-.card-title {
-  flex: 0 0 auto;
-  font-size: 2em;
-}
-.card-weather {
-  flex: 1 0 auto;
-  margin: 7%;
-}
-.weather-icon {
-  flex: 1 0 0;
-  width: 50px;
-  height: 50px;
-  top: 0;
-  -webkit-animation: weather-icon-move 5s ease-in-out infinite;
-  animation: weather-icon-move 5s ease-in-out infinite;
-}
-.sun {
-  background: #FFCD41;
-  border-radius: 50%;
-  box-shadow: rgba(255, 255, 0, 0.1) 0 0 0 4px;
-  -webkit-animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
-  animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
-}
+  /*Card definitions*/
 
-/*animation definitions*/
-@keyframes fadein {
-  from {
-    opacity: 0;
+  .card {
+    background-color: #ffffff;
+    border-radius: 2%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    height: 100px;
+    width: 225px;
   }
-  to {
-    opacity: 1;
+  .card > div {
+    font-family: 'Droid Sans', sans-serif;
   }
-}
+  .card-weather {
+    margin-top: 10vh;
+  }
+  .weather-icon {
+    height: 45px;
+    width: 45px;
+    float: right;
+    margin: 10% 7% 0 0;
+  }
+  .weather-temp {
+    float: left;
+    clear: left;
+    margin-left: 5%;
+    padding-top: 3%;
+  }
+  .weather-cityname {
+    float: left;
+    padding-top: 10%;
+    margin-left: 5%;
+  }
+  /*Icons*/
 
-@-webkit-keyframes light {
-  from {
-    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
+  .sun {
+    background: #FFCD41;
+    border-radius: 50%;
+    box-shadow: rgba(255, 255, 0, 0.1) 0 0 0 2px;
+    -webkit-animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
+    animation: light 800ms ease-in-out infinite alternate, weather-icon-move 5s ease-in-out infinite;
   }
-  to {
-    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
-  }
-}
-@keyframes light {
-  from {
-    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
-  }
-  to {
-    box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 17px;
-  }
-}
+  /*animation definitions*/
 
-/*utility classes*/
-.hidden {
-  display: none !important;
-}
-.fadein {
-  animation: fadein 2.5s;
-}
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes light {
+    from {
+      box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 5px;
+    }
+    to {
+      box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
+    }
+  }
+  @keyframes light {
+    from {
+      box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 5px;
+    }
+    to {
+      box-shadow: rgba(255, 255, 0, 0.2) 0 0 0 10px;
+    }
+  }
+  /*utility classes*/
+
+  .hidden {
+    display: none !important;
+  }
+  .fadein {
+    animation: fadein 2.5s;

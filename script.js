@@ -63,9 +63,8 @@
           weatherCard.classList.add('fadein');
 
           // card subsection declarations
-          var cityName = document.getElementById('city-name');
-          var cityTemp = document.getElementById('city-temp');
-          var tempSlider = document.getElementById('temp-slider');
+          var cityName = document.getElementById('city');
+          var cityTemp = document.getElementById('temp');
 
           // card subsection definitions
           cityName.innerHTML = results.name;
@@ -74,7 +73,7 @@
         }
 
         function getWeatherIcon(desc) {
-          var weatherIcon = document.getElementById('weather-icon');
+          var weatherIcon = document.getElementById('icon');
           switch (desc) {
             case 'Clear':
               weatherIcon.classList.add('sun');
